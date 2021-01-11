@@ -1,0 +1,41 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test-all-commands:
+    name: Test all commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+#      - name: Setup UPX
+#        run: sudo apt-get install -y upx-ucl
+
+      - name: Set up Go 1.15
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+
+      - name: Cache golang modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-golang-modules
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Download golang modules
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: go mod download
+        working-directory: .
+
+      - name: Run tests
+        run: make tests
