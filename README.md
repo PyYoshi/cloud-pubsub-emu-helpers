@@ -1,7 +1,7 @@
 cloud-pubsub-emu-helpers
 ========================
 
-# cmd/cpubsubc
+# cmd/creator
 
 This tool creates topic and subscriptions on Cloud Pub/Sub emulator.
 
