@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  assignees:
+  - PyYoshi
+- package-ecosystem: docker
+  directory: "/dockerfiles"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  assignees:
+  - PyYoshi
