@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	cloud.google.com/go/pubsub v1.25.1
-	google.golang.org/api v0.98.0
+	google.golang.org/api v0.103.0
 )
