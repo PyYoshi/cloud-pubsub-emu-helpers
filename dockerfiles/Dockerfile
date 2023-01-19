@@ -1,4 +1,4 @@
-FROM gcr.io/google.com/cloudsdktool/cloud-sdk:412.0.0
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:414.0.0
 
 USER 0
 
