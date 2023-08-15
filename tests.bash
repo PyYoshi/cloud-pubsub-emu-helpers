@@ -5,8 +5,8 @@ CONTAINER_PS_NAME="$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -
 
 function dockerRun() {
   echo "Staring pub/sub emulator...: container=${CONTAINER_PS_NAME}"
-  docker build -t ${CONTAINER_IMAGE_NAME} ./dockerfiles >/dev/null 2>&1
-  docker run --rm --name "${CONTAINER_PS_NAME}" -p "8086:8086" -d -t ${CONTAINER_IMAGE_NAME} >/dev/null 2>&1
+  docker build -t ${CONTAINER_IMAGE_NAME} ./dockerfiles
+  docker run --rm --name "${CONTAINER_PS_NAME}" -p "8086:8086" -d -t ${CONTAINER_IMAGE_NAME}
 }
 
 function test_creatorCmd() {
