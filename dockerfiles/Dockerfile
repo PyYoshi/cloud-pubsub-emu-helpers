@@ -1,4 +1,4 @@
-FROM gcr.io/google.com/cloudsdktool/cloud-sdk:498.0.0-emulators
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:499.0.0-emulators
 
 EXPOSE 8086
 VOLUME /var/pubsub
