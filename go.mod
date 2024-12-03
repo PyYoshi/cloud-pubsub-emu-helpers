@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.0
 
 require (
-	cloud.google.com/go/pubsub v1.45.1
+	cloud.google.com/go/pubsub v1.45.2
 	google.golang.org/api v0.208.0
 )
 
