@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"cloud.google.com/go/pubsub"
+	"github.com/cockroachdb/errors"
 	"google.golang.org/api/option"
 )
 
@@ -69,7 +70,7 @@ func create(
 		option.WithoutAuthentication(),
 	)
 	if err != nil {
-		return err
+		return errors.WithStack(err)
 	}
 	defer func() {
 		deferErr := pubsubClient.Close()
@@ -81,13 +82,13 @@ func create(
 	topic := pubsubClient.Topic(topicName)
 	topicExists, err := topic.Exists(ctx)
 	if err != nil {
-		return err
+		return errors.WithStack(err)
 	}
 
 	if !topicExists {
 		topic, err = pubsubClient.CreateTopic(ctx, topicName)
 		if err != nil {
-			return err
+			return errors.WithStack(err)
 		}
 	}
 
@@ -97,7 +98,7 @@ func create(
 		sub = pubsubClient.Subscription(subscriptionName)
 		subExists, err := sub.Exists(ctx)
 		if err != nil {
-			return err
+			return errors.WithStack(err)
 		}
 
 		if !subExists {
@@ -106,7 +107,7 @@ func create(
 				AckDeadline: 10 * time.Second,
 			})
 			if err != nil {
-				return err
+				return errors.WithStack(err)
 			}
 		}
 	}
