@@ -5,7 +5,7 @@ go 1.24.5
 require (
 	cloud.google.com/go/pubsub v1.50.1
 	github.com/cockroachdb/errors v1.12.0
-	google.golang.org/api v0.266.0
+	google.golang.org/api v0.267.0
 )
 
 require (
