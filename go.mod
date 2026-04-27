@@ -1,10 +1,10 @@
 module github.com/PyYoshi/cloud-pubsub-emu-helpers
 
-go 1.24.5
+go 1.25.0
 
 require (
 	cloud.google.com/go/pubsub v1.50.1
-	github.com/cockroachdb/errors v1.12.0
+	github.com/cockroachdb/errors v1.13.0
 	google.golang.org/api v0.266.0
 )
 
@@ -19,7 +19,7 @@ require (
 	github.com/cockroachdb/logtags v0.0.0-20230118201751-21c54148d20b // indirect
 	github.com/cockroachdb/redact v1.1.5 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
-	github.com/getsentry/sentry-go v0.27.0 // indirect
+	github.com/getsentry/sentry-go v0.46.0 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
